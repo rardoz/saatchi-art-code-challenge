@@ -3,11 +3,11 @@
   Please don't do this!!!
 */
 
-import React, { PureComponent } from "react"
-import styled from "styled-components"
-import marked from "marked"
+import React, { PureComponent } from "react";
+import styled from "styled-components";
+import marked from "marked";
 
-import myMarkdownFile from "../README.md"
+import myMarkdownFile from "../README.md";
 
 const Wrapper = styled.div`
   h1 {
@@ -55,34 +55,34 @@ const Wrapper = styled.div`
       }
     }
   }
-`
+`;
 
 export default class Instructions extends PureComponent {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      markdown: null,
-    }
+      markdown: null
+    };
   }
 
   componentWillMount() {
     fetch(myMarkdownFile)
       .then(response => response.text())
-      .then(markdown => this.setState({ markdown }))
+      .then(markdown => this.setState({ markdown }));
   }
 
   render() {
-    const { markdown } = this.state
+    const { markdown } = this.state;
     if (!markdown) {
-      return null
+      return null;
     }
 
     return (
       <Wrapper
         dangerouslySetInnerHTML={{
-          __html: marked(markdown, { sanitize: true }),
+          __html: marked(markdown, { sanitize: true })
         }}
       />
-    )
+    );
   }
 }

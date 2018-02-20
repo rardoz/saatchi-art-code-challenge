@@ -1,8 +1,8 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import styled from "styled-components"
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-import Search from "../containers/Search"
+import Search from "../containers/Search";
 
 const Header = styled.header`
   background: ${props => props.theme.colors.headerBackground};
@@ -13,12 +13,12 @@ const Header = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 const Logo = styled.img`
   width: 200px;
   height: 30px;
-`
+`;
 
 const Links = styled.nav`
   a {
@@ -44,7 +44,7 @@ const Links = styled.nav`
       color: ${props => props.theme.colors.blue};
     }
   }
-`
+`;
 
 export default () => (
   <Header>
@@ -57,4 +57,4 @@ export default () => (
 
     <Search />
   </Header>
-)
+);

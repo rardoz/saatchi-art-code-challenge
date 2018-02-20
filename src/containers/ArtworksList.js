@@ -1,8 +1,21 @@
-import { connect } from "react-redux"
+import { connect } from "react-redux";
+import {
+  getArtwork,
+  addFavorite,
+  removeFavorite
+} from "../redux/actions/artworks";
+import ArtworksList from "../components/ArtworksList";
 
-import ArtworksList from "../components/ArtworksList"
+const mapStateToProps = state => ({
+  isLoading: state.artworks.isLoading,
+  items: state.artworks.items,
+  favorites: state.artworks.favorites
+});
 
-const mapStateToProps = state => ({})
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = dispatch => ({
+  addFavorite: id => dispatch(addFavorite(id)),
+  removeFavorite: id => dispatch(removeFavorite(id)),
+  getArtwork: dispatch(getArtwork())
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArtworksList)
+export default connect(mapStateToProps, mapDispatchToProps)(ArtworksList);

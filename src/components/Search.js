@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
 
 const Search = styled.div`
   position: relative;
@@ -7,13 +7,13 @@ const Search = styled.div`
   align-items: center;
   justify-content: space-between;
   border: ${props => props.theme.border};
-`
+`;
 
 const SVG = styled.svg`
   height: 7px;
   width: 14px;
   margin: 15px 10px;
-`
+`;
 
 const Input = styled.input`
   border: none;
@@ -26,13 +26,13 @@ const Input = styled.input`
   &::placeholder {
     color: ${props => props.theme.colors.grayDark};
   }
-`
+`;
 
 const Mag = styled.img`
   margin-right: 10px;
   height: 15px;
   width: 16.4219px;
-`
+`;
 
 export default props => {
   return (
@@ -43,9 +43,13 @@ export default props => {
         </g>
       </SVG>
 
-      <Input type="text" placeholder="Search Artworks" />
+      <Input
+        onChange={e => props.getArtwork(e.target.value)}
+        type="text"
+        placeholder="Search Artworks"
+      />
 
       <Mag src="/img/mag-glass.svg" />
     </Search>
-  )
-}
+  );
+};

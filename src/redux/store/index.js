@@ -1,8 +1,8 @@
-import { createStore, applyMiddleware } from "redux"
-import { composeWithDevTools } from "redux-devtools-extension/developmentOnly"
-import thunkMiddleware from "redux-thunk" // lets us dispatch() functions
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
+import thunkMiddleware from "redux-thunk"; // lets us dispatch() functions
 
-import rootReducer from "../reducers"
+import rootReducer from "../reducers";
 
 export default (preloadedState: Object) => {
   if (typeof window !== "undefined") {
@@ -10,7 +10,7 @@ export default (preloadedState: Object) => {
       rootReducer,
       preloadedState,
       composeWithDevTools(applyMiddleware(thunkMiddleware))
-    )
+    );
   }
-  return createStore(rootReducer, preloadedState)
-}
+  return createStore(rootReducer, preloadedState);
+};

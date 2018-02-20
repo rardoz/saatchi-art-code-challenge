@@ -1,9 +1,9 @@
-import { combineReducers } from "redux"
-import { routerReducer } from "react-router-redux"
+import { combineReducers } from "redux";
+import { routerReducer } from "react-router-redux";
 
-import artworks from "./artworks"
+import artworks from "./artworks";
 
 export default combineReducers({
   artworks,
-  routing: routerReducer,
-})
+  routing: routerReducer
+});

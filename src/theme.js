@@ -16,9 +16,9 @@ export default {
     blue: "#39c",
     red: "#ef542c",
     headerBackground: "#ffffff",
-    background: "#f1f1f1",
+    background: "#f1f1f1"
   },
   fontFamilySerif: "Crimson Text, serif",
   fontFamilySans: "Helvetica, sans-serif",
-  borderRadius: 4,
-}
+  borderRadius: 4
+};

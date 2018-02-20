@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
 
 const Artwork = styled.div`
   background: ${props => props.theme.colors.white};
@@ -9,11 +9,11 @@ const Artwork = styled.div`
   img {
     width: 100%;
   }
-`
+`;
 
 const ImageWrapper = styled.div`
   position: relative;
-`
+`;
 
 const Favicon = styled.span`
   position: absolute;
@@ -36,13 +36,13 @@ const Favicon = styled.span`
   }
   &:hover {
     color: ${props =>
-    props.liked ? props.theme.colors.secondary : props.theme.colors.red};
+      props.liked ? props.theme.colors.secondary : props.theme.colors.red};
   }
-`
+`;
 
 const Info = styled.div`
   margin-top: ${props => props.theme.space[2]}px;
-`
+`;
 
 const Title = styled.div`
   font-family: ${props => props.theme.fontFamilySerif};
@@ -64,7 +64,7 @@ const Title = styled.div`
       color: ${props => props.theme.colors.blue};
     }
   }
-`
+`;
 
 const SubText = styled.div`
   white-space: nowrap;
@@ -72,18 +72,18 @@ const SubText = styled.div`
   overflow: hidden;
   color: ${props => props.theme.colors.lightGray};
   margin-bottom: ${props => props.theme.space[3]}px;
-`
+`;
 
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
-`
+`;
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
   ${props => props.right && "align-items: flex-end;"};
-`
+`;
 
 export default props => {
   const {
@@ -94,12 +94,16 @@ export default props => {
     dimensions,
     image_url,
     product,
-  } = props
+    liked,
+    addFavorite,
+    removeFavorite
+  } = props;
+
   return (
     <Artwork>
-      <ImageWrapper>
+      <ImageWrapper onClick={liked ? removeFavorite : addFavorite}>
         <img src={image_url} alt={artwork_title} />
-        <Favicon className="fa fa-heart" />
+        <Favicon liked={liked} className="fa fa-heart" />
       </ImageWrapper>
       <Info>
         <Title>
@@ -136,5 +140,5 @@ export default props => {
         </Row>
       </Info>
     </Artwork>
-  )
-}
+  );
+};

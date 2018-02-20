@@ -1,16 +1,16 @@
-import React from "react"
-import { Switch, Route, Redirect } from "react-router"
-import { Provider } from "react-redux"
-import { BrowserRouter as Router } from "react-router-dom"
-import { ThemeProvider } from "styled-components"
-import styled from "styled-components"
-import { Helmet } from "react-helmet"
+import React from "react";
+import { Switch, Route, Redirect } from "react-router";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import styled from "styled-components";
+import { Helmet } from "react-helmet";
 
-import { store, history } from "../redux"
-import theme from "../theme"
-import Header from "../components/Header"
-import ArtworksList from "./ArtworksList"
-import Info from "../components/Info"
+import { store } from "../redux";
+import theme from "../theme";
+import Header from "../components/Header";
+import ArtworksList from "./ArtworksList";
+import Info from "../components/Info";
 
 const Wrapper = styled.div`
   background: ${props => props.theme.colors.background};
@@ -19,15 +19,15 @@ const Wrapper = styled.div`
   flex-direction: column;
   height: 100%;
   min-height: 100vh;
-`
+`;
 
 const View = styled.div`
   margin: 30px;
-`
+`;
 
 export default (props = {}) => (
   <Provider store={store}>
-    <Router history={history}>
+    <Router>
       <ThemeProvider theme={theme}>
         <Wrapper>
           <Helmet>
@@ -66,4 +66,4 @@ export default (props = {}) => (
       </ThemeProvider>
     </Router>
   </Provider>
-)
+);
